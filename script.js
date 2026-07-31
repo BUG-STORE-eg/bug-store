@@ -10,38 +10,50 @@ coc:{name:"Clash of Clans",code:"COC",desc:"شحن Clash of Clans",items:[["80 G
 };
 
 let cart=JSON.parse(localStorage.getItem("bugCart")||"[]");
-const $=id=>document.getElementById(id);
-function saveCart(){localStorage.setItem("bugCart",JSON.stringify(cart));$("count").textContent=cart.length}
-function showSection(id){
- document.querySelectorAll(".page-section").forEach(s=>s.classList.remove("active-section"));
- $(id).classList.add("active-section");
- document.querySelectorAll("nav a[data-section]").forEach(a=>a.classList.toggle("active",a.dataset.section===id));
- window.scrollTo({top:0,behavior:"smooth"});
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+
+function save(){localStorage.setItem("bugCart",JSON.stringify(cart));$("#count").textContent=cart.length}
+
+function go(page){
+ $$(".page").forEach(x=>x.classList.remove("active"));
+ const target=$("#page-"+page);
+ if(target)target.classList.add("active");
+ $$("nav a[data-page]").forEach(a=>a.classList.toggle("active",a.dataset.page===page));
+ if(page==="recharge")renderGame("crossfire");
+ window.scrollTo(0,0);
+ history.replaceState(null,"","#"+page);
 }
-document.querySelectorAll("nav a[data-section]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();showSection(a.dataset.section)}));
+
+$$("nav a[data-page]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();go(a.dataset.page)}));
+$(".brand").addEventListener("click",e=>{e.preventDefault();go("home")});
 
 function renderGame(id){
  const g=games[id];
- $("gameTitle").textContent=g.name;$("gameCode").textContent=g.code;$("gameDesc").textContent=g.desc;
- document.querySelectorAll(".game-btn").forEach(b=>b.classList.toggle("active",b.dataset.game===id));
- $("prices").innerHTML=g.items.map((x,i)=>`
+ $("#gameTitle").textContent=g.name;
+ $("#gameCode").textContent=g.code;
+ $("#gameDesc").textContent=g.desc;
+ $$(".game").forEach(b=>b.classList.toggle("active",b.dataset.game===id));
+ $("#prices").innerHTML=g.items.map((x,i)=>`
  <article class="price"><h3>${x[0]}</h3><em>شحن سريع</em><div class="coins">🪙</div>
- <div class="price-row"><b>${x[1]} جنيه</b><button class="add-game" data-game="${id}" data-index="${i}">اطلب الآن 🛒</button></div></article>`).join("");
- document.querySelectorAll(".add-game").forEach(b=>b.addEventListener("click",()=>{
+ <div class="price-row"><b>${x[1]} جنيه</b><button class="add" data-game="${id}" data-index="${i}">اطلب الآن 🛒</button></div></article>`).join("");
+ $$(".add").forEach(b=>b.addEventListener("click",()=>{
    const g=games[b.dataset.game],x=g.items[Number(b.dataset.index)];
-   addToCart(g.name+" - "+x[0],x[1]);
+   add(g.name+" - "+x[0],x[1]);
  }));
 }
-document.querySelectorAll(".game-btn").forEach(b=>b.addEventListener("click",()=>renderGame(b.dataset.game)));
-document.querySelectorAll(".buy-program").forEach(b=>b.addEventListener("click",()=>addToCart(b.dataset.name,Number(b.dataset.price))));
-function addToCart(name,price){cart.push({name,price});saveCart();openCart()}
-function openCart(){renderCart();$("modal").classList.add("show")}
-function closeCart(){$("modal").classList.remove("show")}
+
+$$(".game").forEach(b=>b.addEventListener("click",()=>renderGame(b.dataset.game)));
+$$(".buy").forEach(b=>b.addEventListener("click",()=>add(b.dataset.name,Number(b.dataset.price))));
+
+function add(name,price){cart.push({name,price});save();openCart()}
+function openCart(){$("#modal").classList.add("show");renderCart()}
+function closeCart(){$("#modal").classList.remove("show")}
 function renderCart(){
  let total=0;
- $("items").innerHTML=cart.length?cart.map((x,i)=>{total+=x.price;return `<div class="row"><span>${x.name}</span><span>${x.price} جنيه <button data-remove="${i}">حذف</button></span></div>`}).join(""):"<p>السلة فارغة.</p>";
- $("total").textContent=total;
- document.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{cart.splice(Number(b.dataset.remove),1);saveCart();renderCart()});
+ $("#items").innerHTML=cart.length?cart.map((x,i)=>{total+=x.price;return `<div class="row"><span>${x.name}</span><span>${x.price} جنيه <button data-remove="${i}">حذف</button></span></div>`}).join(""):"<p>السلة فارغة.</p>";
+ $("#total").textContent=total;
+ $$("[data-remove]").forEach(b=>b.onclick=()=>{cart.splice(Number(b.dataset.remove),1);save();renderCart()});
 }
 function checkout(){
  if(!cart.length)return;
@@ -50,7 +62,7 @@ function checkout(){
  msg+=`\nالإجمالي: ${total} جنيه`;
  window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank");
 }
-$("cartBtn").onclick=openCart;$("closeCart").onclick=closeCart;
-$("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeCart()});
-$("checkout").onclick=checkout;
-saveCart();renderGame("crossfire");
+$("#cartBtn").onclick=openCart;$("#close").onclick=closeCart;$("#checkout").onclick=checkout;
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeCart()});
+save();
+go(location.hash.slice(1)||"home");

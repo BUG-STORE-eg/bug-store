@@ -2,74 +2,79 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BUG STORE</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <header>
-  <a class="brand" href="#home"><strong>BUG</strong> <span>STORE</span><i>◉</i></a>
+  <a class="brand" href="#home" data-page="home"><strong>BUG</strong> <span>STORE</span><i>◉</i></a>
   <nav>
-    <a class="active" href="#home" data-section="home">الرئيسية</a>
-    <a href="#programs" data-section="programs">برامج الألعاب 🖥️</a>
-    <a href="#recharge" data-section="recharge">شحن الألعاب 🎮</a>
+    <a href="#home" data-page="home" class="active">الرئيسية</a>
+    <a href="#programs" data-page="programs">برامج الألعاب 🖥️</a>
+    <a href="#recharge" data-page="recharge">شحن الألعاب 🎮</a>
   </nav>
   <button class="cart" id="cartBtn">🛒 السلة <b id="count">0</b></button>
 </header>
 
-<main>
-<section id="home" class="page-section active-section">
-  <div class="welcome">
-    <div>
-      <h1>مرحباً بك في <b>BUG STORE</b></h1>
-      <p>متجرك لشحن الألعاب وشراء البرامج الاحترافية</p>
-      <div class="home-actions">
-        <a class="main-btn whatsapp" href="https://wa.me/?text=مرحباً%20BUG%20STORE" target="_blank">💬 WhatsApp</a>
-        <a class="main-btn discord" href="https://discord.gg/4B8cSvyd6" target="_blank">🎧 Discord</a>
+<div id="app">
+  <section class="page active" id="page-home">
+    <div class="home-card">
+      <div>
+        <h1>مرحباً بك في <b>BUG STORE</b></h1>
+        <p>أهلاً بيك في متجر BUG STORE ❤️</p>
+        <p class="muted">للطلب والاستفسار تواصل معنا مباشرة.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/?text=مرحباً%20BUG%20STORE" target="_blank">💬 WhatsApp</a>
+          <a class="btn" href="https://discord.gg/4B8cSvyd6" target="_blank">🎧 Discord</a>
+        </div>
+      </div>
+      <div class="hero">BUG<small>STORE</small></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-programs">
+    <div class="heading"><h1>🖥️ برامج الألعاب</h1><p>البرامج المتاحة فقط</p></div>
+    <div class="programs">
+      <article>
+        <div class="icon">🐞</div><h2>Bug</h2>
+        <p>CrossFire West<br>Bug Limit & Card</p>
+        <strong>650 جنيه</strong>
+        <button class="buy" data-name="Bug - CrossFire West" data-price="650">اطلب الآن 🛒</button>
+      </article>
+      <article>
+        <div class="icon">🤖</div><h2>Boot Farm</h2>
+        <p>CrossFire West<br>XP Farm</p>
+        <strong>500 جنيه</strong>
+        <button class="buy" data-name="Boot Farm - CrossFire West" data-price="500">اطلب الآن 🛒</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="page" id="page-recharge">
+    <div class="heading"><h1>🎮 شحن الألعاب</h1><p>اختار اللعبة من القائمة لعرض باقاتها فقط</p></div>
+    <div class="recharge">
+      <aside class="game-menu">
+        <button class="game active" data-game="crossfire">🎯 CrossFire <b>›</b></button>
+        <button class="game" data-game="pubg">🎯 PUBG Mobile <b>›</b></button>
+        <button class="game" data-game="freefire">🔥 Free Fire <b>›</b></button>
+        <button class="game" data-game="valorant">🔻 Valorant <b>›</b></button>
+        <button class="game" data-game="steam">🎮 Steam Wallet <b>›</b></button>
+        <button class="game" data-game="ml">💎 Mobile Legends <b>›</b></button>
+        <button class="game" data-game="lol">⚔️ League of Legends <b>›</b></button>
+        <button class="game" data-game="coc">🛡️ Clash of Clans <b>›</b></button>
+      </aside>
+      <div class="offers">
+        <div class="offer-head"><div><h2 id="gameTitle"></h2><p id="gameDesc"></p></div><b id="gameCode"></b></div>
+        <div id="prices" class="prices"></div>
       </div>
     </div>
-    <div class="hero-bug">BUG<br><small>STORE</small></div>
-  </div>
-</section>
+  </section>
+</div>
 
-<section id="programs" class="page-section">
-  <div class="section-head"><h2>🖥️ برامج الألعاب</h2><p>البرامج المتاحة فقط</p></div>
-  <div class="programs">
-    <article class="program-card">
-      <div>🐞</div><h3>Bug</h3><p>CrossFire West<br>Bug Limit & Card</p>
-      <strong>650 جنيه</strong><button class="buy-program" data-name="Bug - CrossFire West" data-price="650">اطلب الآن 🛒</button>
-    </article>
-    <article class="program-card">
-      <div>🤖</div><h3>Boot Farm</h3><p>CrossFire West<br>XP Farm</p>
-      <strong>500 جنيه</strong><button class="buy-program" data-name="Boot Farm - CrossFire West" data-price="500">اطلب الآن 🛒</button>
-    </article>
-  </div>
-</section>
-
-<section id="recharge" class="page-section">
-  <div class="section-head"><h2>🎮 شحن الألعاب</h2><p>اختار اللعبة لعرض باقاتها</p></div>
-  <div class="game-layout">
-    <aside class="games-list">
-      <button class="game-btn active" data-game="crossfire">🎯 CrossFire <b>›</b></button>
-      <button class="game-btn" data-game="pubg">🎯 PUBG Mobile <b>›</b></button>
-      <button class="game-btn" data-game="freefire">🔥 Free Fire <b>›</b></button>
-      <button class="game-btn" data-game="valorant">🔻 Valorant <b>›</b></button>
-      <button class="game-btn" data-game="steam">🎮 Steam Wallet <b>›</b></button>
-      <button class="game-btn" data-game="ml">💎 Mobile Legends <b>›</b></button>
-      <button class="game-btn" data-game="lol">⚔️ League of Legends <b>›</b></button>
-      <button class="game-btn" data-game="coc">🛡️ Clash of Clans <b>›</b></button>
-    </aside>
-    <div class="game-content">
-      <div class="game-title"><div><h2 id="gameTitle"></h2><p id="gameDesc"></p></div><b id="gameCode"></b></div>
-      <div id="prices" class="price-grid"></div>
-    </div>
-  </div>
-</section>
-</main>
-
-<div id="modal" class="modal">
+<div class="modal" id="modal">
   <div class="modal-box">
-    <button class="close" id="closeCart">×</button>
+    <button class="close" id="close">×</button>
     <h2>🛒 السلة</h2>
     <div id="items"></div>
     <h3>الإجمالي: <b id="total">0</b> جنيه</h3>
