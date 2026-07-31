@@ -1,8 +1,69 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BUG STORE</title><link rel="stylesheet" href="style.css"></head><body>
-<header><a class="brand" href="#home"><strong>BUG</strong> <span>STORE</span><i>◉</i></a><nav><a class="active" href="#home">الرئيسية</a><a href="#programs">برامج الألعاب 🖥️</a><a href="#recharge">شحن الألعاب 🎮</a><a href="https://discord.gg/4B8cSvyd6" target="_blank">Discord</a></nav><button class="cart" onclick="openCart()">🛒 السلة <b id="count">0</b></button></header>
-<main><section class="dashboard"><aside class="sidebar"><div class="logo-box"><div class="bug-mark">◉</div><div><b>BUG</b><span>STORE</span></div><small>BUG STORE</small></div><h3>🎮 الألعاب</h3><button class="side-game" onclick="showGame("crossfire")"><span>🎯</span>CrossFire<b>›</b></button><button class="side-game" onclick="showGame("pubg")"><span>🎯</span>PUBG Mobile<b>›</b></button><button class="side-game" onclick="showGame("freefire")"><span>🔥</span>Free Fire<b>›</b></button><button class="side-game" onclick="showGame("valorant")"><span>🔻</span>Valorant<b>›</b></button><button class="side-game" onclick="showGame("steam")"><span>🎮</span>Steam Wallet<b>›</b></button><button class="side-game" onclick="showGame("ml")"><span>💎</span>Mobile Legends<b>›</b></button><button class="side-game" onclick="showGame("lol")"><span>⚔️</span>League of Legends<b>›</b></button><button class="side-game" onclick="showGame("coc")"><span>🛡️</span>Clash of Clans<b>›</b></button></aside>
-<section class="content"><div id="home" class="welcome"><div><h1>مرحباً بك في <b>BUG STORE</b></h1><p>أفضل متجر لشحن الألعاب وشراء البرامج الاحترافية</p><a href="#recharge" class="main-btn">تسوق الآن 🛍️</a></div><div class="hero-bug">BUG<br><small>STORE</small></div></div>
-<div id="programs" class="section"><h2>برامج الألعاب</h2><div class="programs"><article><div>🐞</div><h3>Bug</h3><p>CrossFire West<br>Bug Limit & Card</p><strong>650 جنيه</strong><button onclick="addToCart('Bug - CrossFire West',650)">اطلب الآن 🛒</button></article><article><div>🤖</div><h3>Boot Farm</h3><p>CrossFire West<br>XP Farm</p><strong>500 جنيه</strong><button onclick="addToCart('Boot Farm - CrossFire West',500)">اطلب الآن 🛒</button></article></div></div>
-<div id="recharge" class="section"><div class="cf-title"><div><h2 id="gameTitle">CrossFire</h2><p id="gameDesc">شحن كروس فاير بأفضل الأسعار وأمان تام</p></div><b>XF</b></div><div id="prices" class="price-grid"></div></div></section></section>
-<section class="features"><div><b>⭐</b><h3>أفضل الأسعار</h3><p>نضمن لك أقل الأسعار</p></div><div><b>⚡</b><h3>سرعة في التنفيذ</h3><p>توصيل فوري خلال دقائق</p></div><div><b>🛡️</b><h3>آمن وموثوق</h3><p>عمليات دفع آمنة</p></div><div><b>🎧</b><h3>دعم فني 24/7</h3><p>نحن هنا لمساعدتك</p></div></section></main>
-<div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeCart()">×</button><h2>🛒 السلة</h2><div id="items"></div><h3>الإجمالي: <b id="total">0</b> جنيه</h3><button class="checkout" onclick="checkout()">إتمام الطلب عبر واتساب</button></div></div><footer>© 2026 BUG STORE</footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BUG STORE</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+<a class="brand" href="#home"><strong>BUG</strong> <span>STORE</span><i>◉</i></a>
+<nav>
+<a class="active" href="#home">الرئيسية</a>
+<a href="#programs">برامج الألعاب 🖥️</a>
+<a href="#recharge">شحن الألعاب 🎮</a>
+<a href="https://discord.gg/4B8cSvyd6" target="_blank">Discord</a>
+</nav>
+<button class="cart" onclick="openCart()">🛒 السلة <b id="count">0</b></button>
+</header>
+
+<main>
+<section class="dashboard">
+<aside class="sidebar">
+<div class="logo-box"><div class="bug-mark">◉</div><div><b>BUG</b><span>STORE</span></div><small>BUG STORE</small></div>
+<h3>🎮 الألعاب</h3>
+<button class="side-game" onclick="showGame('crossfire')"><span>🎯</span><span>CrossFire</span><b>›</b></button><button class="side-game" onclick="showGame('pubg')"><span>🎯</span><span>PUBG Mobile</span><b>›</b></button><button class="side-game" onclick="showGame('freefire')"><span>🔥</span><span>Free Fire</span><b>›</b></button><button class="side-game" onclick="showGame('valorant')"><span>🔻</span><span>Valorant</span><b>›</b></button><button class="side-game" onclick="showGame('steam')"><span>🎮</span><span>Steam Wallet</span><b>›</b></button><button class="side-game" onclick="showGame('ml')"><span>💎</span><span>Mobile Legends</span><b>›</b></button><button class="side-game" onclick="showGame('lol')"><span>⚔️</span><span>League of Legends</span><b>›</b></button><button class="side-game" onclick="showGame('coc')"><span>🛡️</span><span>Clash of Clans</span><b>›</b></button>
+</aside>
+
+<section class="content">
+<div id="home" class="welcome">
+<div><h1>مرحباً بك في <b>BUG STORE</b></h1><p>أفضل متجر لشحن الألعاب وشراء البرامج الاحترافية</p><a href="#recharge" class="main-btn">تسوق الآن 🛍️</a></div>
+<div class="hero-bug">BUG<br><small>STORE</small></div>
+</div>
+
+<div id="programs" class="section">
+<h2>برامج الألعاب</h2>
+<div class="programs">
+<article><div>🐞</div><h3>Bug</h3><p>CrossFire West<br>Bug Limit & Card</p><strong>650 جنيه</strong><button onclick="addToCart('Bug - CrossFire West',650)">اطلب الآن 🛒</button></article>
+<article><div>🤖</div><h3>Boot Farm</h3><p>CrossFire West<br>XP Farm</p><strong>500 جنيه</strong><button onclick="addToCart('Boot Farm - CrossFire West',500)">اطلب الآن 🛒</button></article>
+</div>
+</div>
+
+<div id="recharge" class="section">
+<div class="cf-title"><div><h2 id="gameTitle">CrossFire</h2><p id="gameDesc">شحن CrossFire بأفضل الأسعار</p></div><b>XF</b></div>
+<div id="prices" class="price-grid"></div>
+</div>
+</section>
+</section>
+
+<section class="features">
+<div><b>⭐</b><h3>أفضل الأسعار</h3><p>أسعار مناسبة</p></div>
+<div><b>⚡</b><h3>سرعة في التنفيذ</h3><p>تنفيذ سريع</p></div>
+<div><b>🛡️</b><h3>آمن وموثوق</h3><p>عمليات آمنة</p></div>
+<div><b>🎧</b><h3>دعم فني</h3><p>نحن هنا لمساعدتك</p></div>
+</section>
+</main>
+
+<div id="modal" class="modal">
+<div class="modal-box">
+<button class="close" onclick="closeCart()">×</button>
+<h2>🛒 السلة</h2><div id="items"></div>
+<h3>الإجمالي: <b id="total">0</b> جنيه</h3>
+<button class="checkout" onclick="checkout()">إتمام الطلب عبر واتساب</button>
+</div>
+</div>
+<footer>© 2026 BUG STORE</footer>
+<script src="./script.js"></script>
+</body>
+</html>
