@@ -1,7 +1,82 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bug Store</title><link rel="stylesheet" href="style.css"></head><body>
-<header><a class="logo" href="#home">BUG <span>STORE</span></a><nav><a href="#home">الرئيسية</a><a href="#tools">برامج الألعاب</a><a href="#recharge">شحن الألعاب</a><a href="https://discord.gg/4B8cSvyd6" target="_blank">Discord</a></nav><button class="cart" onclick="showCart()">🛒 السلة <b id="count">0</b></button></header>
-<section id="home" class="hero"><p>WELCOME TO</p><h1>BUG STORE</h1><h2>برامج الألعاب وشحن الألعاب</h2><div><a href="#tools">🎮 برامج الألعاب</a><a href="#recharge">🎮 شحن الألعاب</a></div></section>
-<section id="tools" class="section"><h2>🎮 برامج الألعاب</h2><div class="tools"><article><div>🐞</div><h3>Bug</h3><p>CrossFire West</p><strong>650 جنيه</strong><button onclick="order('Bug - CrossFire West',650)">اطلب الآن</button></article><article><div>🤖</div><h3>Boot Farm</h3><p>CrossFire West — XP Farm</p><strong>500 جنيه</strong><button onclick="order('Boot Farm - CrossFire West',500)">اطلب الآن</button></article></div></section>
-<section id="recharge" class="section"><h2>🎮 شحن الألعاب</h2><p class="hint">اختار اللعبة لعرض كل الباقات الخاصة بها.</p><div class="games"><button class="game" onclick="openGame('crossfire')"><span>🔫</span><b>CrossFire West</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('pubg')"><span>🎯</span><b>PUBG Mobile</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('freefire')"><span>🔥</span><b>Free Fire</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('ml')"><span>💎</span><b>Mobile Legends</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('steam')"><span>🎮</span><b>Steam Egypt</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('playstation')"><span>🎮</span><b>PlayStation USA</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('xbox')"><span>🎮</span><b>Xbox USA</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('apple')"><span>🍎</span><b>Apple US</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('roblox')"><span>🧱</span><b>Roblox</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('valorant')"><span>🎯</span><b>Valorant Egypt/MENA</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('razer')"><span>🟩</span><b>Razer Gold Global</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('nintendo')"><span>🎮</span><b>Nintendo eShop US</b><small>عرض الباقات والأسعار</small></button><button class="game" onclick="openGame('googleplay')"><span>▶️</span><b>Google Play USA</b><small>عرض الباقات والأسعار</small></button></div><div id="panel" class="panel"></div></section>
-<section class="contact"><h2>💬 تواصل معنا</h2><a class="discord" href="https://discord.gg/4B8cSvyd6" target="_blank">انضم إلى Discord</a><a class="wa" href="https://wa.me/201101403738" target="_blank">واتساب</a></section>
-<div id="modal" class="modal"><div class="box"><button class="close" onclick="hideCart()">×</button><h2>🛒 السلة</h2><div id="items"></div><h3>الإجمالي: <span id="total">0</span> جنيه</h3><button class="checkout" onclick="checkout()">إتمام الطلب عبر واتساب</button></div></div><footer>© 2026 Bug Store</footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bug Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="#home">BUG <span>STORE</span></a>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#programs">برامج الألعاب</a>
+    <a href="#recharge">شحن الألعاب</a>
+    <a href="https://discord.gg/4B8cSvyd6" target="_blank">Discord</a>
+  </nav>
+  <button class="cart-button" type="button" onclick="openCart()">🛒 السلة <b id="cartCount">0</b></button>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="mini">WELCOME TO</div>
+    <h1>BUG STORE</h1>
+    <p>برامج الألعاب وشحن الألعاب</p>
+    <div class="hero-buttons">
+      <a href="#programs">🎮 برامج الألعاب</a>
+      <a href="#recharge">🎮 شحن الألعاب</a>
+    </div>
+  </div>
+</section>
+
+<section id="programs" class="section">
+  <h2>🎮 برامج الألعاب</h2>
+  <div class="program-grid">
+    <article class="program-card">
+      <div class="big-icon">🐞</div>
+      <span>CrossFire West</span>
+      <h3>Bug</h3>
+      <p>Bug Limit & Card</p>
+      <strong>650 جنيه</strong>
+      <button type="button" onclick="addToCart('Bug - CrossFire West', 650)">🛒 اطلب الآن</button>
+    </article>
+    <article class="program-card">
+      <div class="big-icon">🤖</div>
+      <span>CrossFire West</span>
+      <h3>Boot Farm</h3>
+      <p>XP Farm</p>
+      <strong>500 جنيه</strong>
+      <button type="button" onclick="addToCart('Boot Farm - CrossFire West', 500)">🛒 اطلب الآن</button>
+    </article>
+  </div>
+</section>
+
+<section id="recharge" class="section">
+  <h2>🎮 شحن الألعاب</h2>
+  <p class="sub">اختار اللعبة فقط، وبعدها هتظهر لك أسعار الشحن الخاصة بيها.</p>
+  <div class="games-grid">
+    <button class="game-card" type="button" onclick="showGame('crossfire')"><span>🔫</span><b>CrossFire West</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('pubg')"><span>🎯</span><b>PUBG Mobile</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('freefire')"><span>🔥</span><b>Free Fire</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('ml')"><span>💎</span><b>Mobile Legends</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('steam')"><span>🎮</span><b>Steam</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('playstation')"><span>🎮</span><b>PlayStation</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('xbox')"><span>🎮</span><b>Xbox</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('google')"><span>▶️</span><b>Google Play</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('apple')"><span>🍎</span><b>Apple</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('roblox')"><span>🧱</span><b>Roblox</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('valorant')"><span>🎯</span><b>Valorant</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('razer')"><span>🟩</span><b>Razer Gold</b><small>اضغط لعرض الباقات</small></button><button class="game-card" type="button" onclick="showGame('nintendo')"><span>🎮</span><b>Nintendo</b><small>اضغط لعرض الباقات</small></button>
+  </div>
+  <div id="gamePrices" class="prices-box"></div>
+</section>
+
+<section class="contact">
+  <a class="discord" href="https://discord.gg/4B8cSvyd6" target="_blank">💬 انضم إلى Discord</a>
+  <a class="whatsapp" href="https://wa.me/201101403738" target="_blank">📱 واتساب</a>
+</section>
+
+<div id="cartModal" class="modal">
+  <div class="modal-box">
+    <button class="close" type="button" onclick="closeCart()">×</button>
+    <h2>🛒 السلة</h2>
+    <div id="cartItems"></div>
+    <div class="total">الإجمالي: <b id="cartTotal">0</b> جنيه</div>
+    <button class="checkout" type="button" onclick="checkout()">إتمام الطلب عبر واتساب</button>
+  </div>
+</div>
+
+<footer>© 2026 Bug Store</footer>
+<script src="script.js"></script>
+</body>
+</html>
