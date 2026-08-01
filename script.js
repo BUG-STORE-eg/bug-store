@@ -3,7 +3,7 @@ const games={
  crossfire:{name:'CrossFire',desc:'شحن CrossFire بأفضل الأسعار',items:[['10,000 ZP',210],['20,000 ZP',405],['50,000 ZP',975]]},
  pubg:{name:'PUBG Mobile',desc:'باقات شحن PUBG Mobile',items:[['60 UC',70],['325 UC',270],['660 UC',500],['1800 UC',1250],['3850 UC',2480],['8100 UC',4910]]},
  freefire:{name:'Free Fire',desc:'باقات شحن Free Fire',items:[['110 Diamonds',65],['220 Diamonds',120],['341 Diamonds',150],['583 Diamonds',285],['1188 Diamonds',610],['2420 Diamonds',1110]]},
- valorant:{name:'Valorant',desc:'شحن Valorant Points',items:[['475 VP',290],['1000 VP',560],['2050 VP',1070],['3650 VP',1710],['5350 VP',2410],['11000 VP',4860]]},
+ valorant:{name:'Valorant',desc:'شحن Valorant Points',items:[['475 VP',270],['1000 VP',520],['1500 VP',770],['2575 VP',1270],['8700 VP',4000],['3690 VP',1760],['5350 VP',2500],['11000 VP',5000]]},
  steam:{name:'Steam Wallet US',desc:'باقات Steam Wallet أمريكية — الدفع بالجنيه المصري',items:[['$5',285],['$10',550],['$20',1090],['$25',1360],['$50',2710],['$100',5410]]},
  ml:{name:'Mobile Legends',desc:'شحن Mobile Legends',items:[['155 Diamonds',149],['311 Diamonds',287],['949 Diamonds',840],['1617 Diamonds',1394],['3331 Diamonds',2777],['4997 Diamonds',4161]]},
  lol:{name:'League of Legends',desc:'شحن League of Legends',items:[['575 RP',290],['1380 RP',690],['2800 RP',1390],['4500 RP',2190],['6500 RP',3090]]},
